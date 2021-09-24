@@ -20,6 +20,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     num = models.IntegerField(label='Tell me a number', min=13, max=125)
+    palabra= models.StringField(label='Dime la respuesta correcta')
 
 
 # FUNCTIONS
@@ -33,18 +34,15 @@ def set_payoffs(group: Group):
     for p in players:
         if p.num == 20:
             p.payoff = Constants.payment_constant
-
-
-#def set_payoffs(player, values):
-#        if player.gender=='Mujer':
-#            player.payoff= cu(5)
+        if p.palabra == "texto":
+            p.payoff = p.payoff + Constants.payment_constant
 
 
 
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['num']
+    form_fields = ['num', 'palabra']
 
 class ResultsWaitPage(WaitPage):
     body_text = "Waiting for the other participant to decide."
@@ -55,4 +53,4 @@ class Results(Page):
      pass
 
 
-page_sequence = [Demographics,  Results]
+page_sequence = [Demographics, ResultsWaitPage,   Results]
