@@ -53,4 +53,4 @@ class Results(Page):
      pass
 
 
-page_sequence = [Demographics, ResultsWaitPage,   Results]
+page_sequence = [Demographics, ResultsWaitPage,   Results] #Nunca olvides el ResultsWaitPage, sino no saldrán los nuevos valores
