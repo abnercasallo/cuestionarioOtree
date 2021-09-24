@@ -6,7 +6,7 @@ class Constants(BaseConstants):
     name_in_url = 'survey'
     players_per_group = None
     num_rounds = 1
-    pago=cu(5.00)
+    payment_constant=cu(5.00)
 
 
 class Subsession(BaseSubsession):
@@ -19,7 +19,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    age = models.IntegerField(label='What is your age?', min=13, max=125)
+    num = models.IntegerField(label='Tell me a number', min=13, max=125)
 
 
 # FUNCTIONS
@@ -31,8 +31,8 @@ class Player(BasePlayer):
 def set_payoffs(group: Group):
     players = group.get_players()
     for p in players:
-        if p.age == 20:
-            p.payoff = Constants.pago
+        if p.num == 20:
+            p.payoff = Constants.payment_constant
 
 
 #def set_payoffs(player, values):
@@ -44,7 +44,7 @@ def set_payoffs(group: Group):
 # PAGES
 class Demographics(Page):
     form_model = 'player'
-    form_fields = ['age']
+    form_fields = ['num']
 
 class ResultsWaitPage(WaitPage):
     body_text = "Waiting for the other participant to decide."
