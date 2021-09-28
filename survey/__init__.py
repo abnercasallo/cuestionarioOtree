@@ -50,8 +50,7 @@ def set_payoffs2(group: Group):
   #          p.payoff = Constants.payment_constant
         if p.palabra1 == "ch" or p.palabra2 == "añ": ##Si no lo haces separado el palabra 2 se llenara como null y no correrá
             p.payoff = p.payoff + Constants.payment_constant
-        else:
-            p.payoff = p.payoff + 0
+     
         #if p.palabra2 == "añ":
         #    p.payoff = p.payoff + Constants.payment_constant
 """
