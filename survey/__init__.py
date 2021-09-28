@@ -47,15 +47,10 @@ def set_payoffs2(group: Group):
 def set_payoffs(group: Group):
     players = group.get_players()
     for p in players:
-  #      if p.num == 20:
-  #          p.payoff = Constants.payment_constant
-        if p.palabra1 == "ch" or p.palabra2 == "añ": ##Si no lo haces separado el palabra 2 se llenara como null y no correrá
-            p.payoff = p.payoff + Constants.payment_constant
+        if p.palabra1 == "ch" or p.palabra2 == "añ":
+           p.payoff = p.payoff + Constants.payment_constant
         else:
-            p.payoff=p.payoff + nopayment
-     
-        #if p.palabra2 == "añ":
-        #    p.payoff = p.payoff + Constants.payment_constant
+           p.payoff=p.payoff + nopayment
 
 
 # PAGES
