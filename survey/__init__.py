@@ -7,6 +7,7 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     payment_constant=cu(5.00)
+    nopayment = cu(0.00)
 
 
 class Subsession(BaseSubsession):
@@ -30,7 +31,7 @@ class Player(BasePlayer):
     if player.age == 20:
          player.payoff = Constants.pago"""
 
-def set_payoffs1(group: Group):
+"""def set_payoffs1(group: Group):
     players = group.get_players()
     for p in players:
         if p.palabra1 == "ch":
@@ -41,19 +42,20 @@ def set_payoffs2(group: Group):
     for p in players:
         if p.palabra2 == "añ":
             p.payoff = p.payoff + Constants.payment_constant
-
+"""
 ###WHY CAN'T I A USE THIS?:
-"""def set_payoffs(group: Group):
+def set_payoffs(group: Group):
     players = group.get_players()
     for p in players:
   #      if p.num == 20:
   #          p.payoff = Constants.payment_constant
         if p.palabra1 == "ch" or p.palabra2 == "añ": ##Si no lo haces separado el palabra 2 se llenara como null y no correrá
             p.payoff = p.payoff + Constants.payment_constant
+        else:
+            p.payoff=p.payoff + nopayment
      
         #if p.palabra2 == "añ":
         #    p.payoff = p.payoff + Constants.payment_constant
-"""
 
 
 # PAGES
@@ -68,17 +70,17 @@ class Demographics2(Page):
 
 class MyWaitPage1(WaitPage):
     body_text = "Set payoff"
-    after_all_players_arrive = set_payoffs1
+    after_all_players_arrive = set_payoffs
 
 
-
+"""
 class MyWaitPage2(WaitPage):
     body_text = "Set payoff"
     after_all_players_arrive = set_payoffs2
-
+"""
 ###Al tratarse de variables distintas usamos ResultsWaitPage distintos
 class Results(Page):
      pass
 
 
-page_sequence = [Demographics, MyWaitPage1, Demographics2, MyWaitPage2,   Results] #Nunca olvides el ResultsWaitPage, sino no saldrán los nuevos valores
+page_sequence = [Demographics, MyWaitPage1, Demographics2, MyWaitPage1, Results] #Nunca olvides el ResultsWaitPage, sino no saldrán los nuevos valores
