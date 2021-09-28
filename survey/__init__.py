@@ -50,7 +50,7 @@ def set_payoffs(group: Group):
         if p.palabra1 == "ch" or p.palabra2 == "añ":
            p.payoff = p.payoff + Constants.payment_constant
         else:
-           p.payoff=p.payoff + nopayment
+           p.payoff=p.payoff + Constants.nopayment
 
 
 # PAGES
