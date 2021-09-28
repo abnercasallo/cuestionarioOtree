@@ -43,7 +43,7 @@ def set_payoffs2(group: Group):
         if p.palabra2 == "añ":
             p.payoff = p.payoff + Constants.payment_constant
 """
-###WHY CAN'T I A USE THIS?:
+###WHY CAN'T I USE THIS?:
 def set_payoffs(group: Group):
     players = group.get_players()
     for p in players:
