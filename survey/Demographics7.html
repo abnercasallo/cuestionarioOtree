@@ -1,0 +1,49 @@
+{{ block title }}Survey{{ endblock }}
+{{ block content }}
+
+<html>
+<style>
+table, th, td {
+  border:1px solid black;
+  border-collapse: collapse;
+}
+</style>
+<body>
+<h2>Códigos</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>%</th>
+    <th>#</th>
+    <th>$</th>
+      <th>"</th>
+    <th>)</th>
+    <th>=</th>
+      <th>!</th>
+    <th>?</th>
+    <th>...</th>
+  </tr>
+  <tr>
+    <td>a</td>
+    <td>c</td>
+    <td>h</td>
+       <td>g</td>
+    <td>l</td>
+    <td>o</td>
+       <td>p</td>
+    <td>ñ</td>
+    <td>m</td>
+  </tr>
+</table>
+
+</body>
+</html>
+    <p>
+        Término a decifrar "#$"
+    </p>
+
+    {{ formfields }}
+
+    {{ next_button }}
+
+{{ endblock }}
